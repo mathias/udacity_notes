@@ -14,3 +14,9 @@ print weeks * daysInWeek * hoursInDay * minutesInHour
 # Once we get to a terminal, we're done, we're finished
 # We start at the top of the rules, and keep replacing until we're at the terminal for each.
 
+# 1.17
+speed_of_light = 299792458.0 # m / s
+cycles_per_second = 2700000000.0 # cycles / s
+
+print speed_of_light * (1 /cycles_per_second)
+# 0.11 => roughly 11 centimeters
