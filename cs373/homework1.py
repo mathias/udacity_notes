@@ -181,3 +181,26 @@ print "[0.0666, 0.0666, 0.0666]"
 print "p actually equals:"
 show(p)
 
+
+# Example 4:
+colors = [['green', 'green', 'green'],
+          ['green', 'red', 'red'],
+          ['green', 'green', 'green']]
+
+measurements = ['red', 'red']
+
+motions=[[0,0], [0,1]]
+
+sensor_right = 0.8
+p_move = 1.0
+
+# Paste above code in here
+
+print "p should equal:"
+print "[0.0333, 0.0333, 0.0333]"
+print "[0.1333, 0.1333, 0.5333]"
+print "[0.0333, 0.0333, 0.0333]"
+
+print "p actually equals:"
+show(p)
+
