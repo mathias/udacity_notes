@@ -1,11 +1,11 @@
-
 pHit = sensor_right
 pMiss = 1 - sensor_right
 
 pExact = p_move
-pOvershoot = pUndershoot = (1.0 - p_move)/2.
+pNoMove = 1 - p_move
 
 p = []
+
 # Initialize the probabilities
 total_number_of_cells = 0
 for y in range(len(colors)):
@@ -42,9 +42,8 @@ def move(p, U):
   for y in range(len(p)):
     r = []
     for x in range(len(p[y])):
-      s = pExact * p[y][(x-U[1]) % len(p[y])]
-      s = s + pOvershoot * p[y][(x-U[1]-1) % len(p[y])]
-      s = s + pUndershoot * p[y][(x-U[1]+1) % len(p[y])]
+      s = pExact * p[y-U[0]][(x-U[1]) % len(p[y])]
+      s = s + pNoMove * p[y][x]
       r.append(s)
     q.append(r)
   return q
@@ -53,8 +52,9 @@ for m in range(len(motions)):
   p = move(p, motions[m])
   p = sense(p, measurements[m])
 
-def show(p):
-  for i in range(len(p)):
-    print p[i]
+  return q
 
+for m in range(len(motions)):
+  p = move(p, motions[m])
+  p = sense(p, measurements[m])
 
